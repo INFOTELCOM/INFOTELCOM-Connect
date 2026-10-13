@@ -53,9 +53,9 @@ create policy "members remove own reactions" on public.connect_message_reactions
 drop policy if exists "workspace members read pins" on public.connect_message_pins;
 create policy "workspace members read pins" on public.connect_message_pins for select to authenticated using (exists(select 1 from public.connect_channels c join public.connect_members cm on cm.organization_id=c.organization_id where c.id=channel_id and cm.user_id=auth.uid()));
 drop policy if exists "workspace members pin messages" on public.connect_message_pins;
-create policy "workspace members pin messages" on public.connect_message_pins for insert to authenticated with check (pinned_by=auth.uid() and exists(select 1 from public.connect_channels c join public.connect_members cm on cm.organization_id=c.organization_id where c.id=channel_id and cm.user_id=auth.uid()));
+create policy "workspace members pin messages" on public.connect_message_pins for insert to authenticated with check (pinned_by=auth.uid() and exists(select 1 from public.connect_channels c join public.connect_members cm on cm.organization_id=c.organization_id where c.id=channel_id and cm.user_id=auth.uid()) and exists(select 1 from public.connect_messages m where m.id=message_id and m.channel_id=channel_id));
 drop policy if exists "workspace members unpin messages" on public.connect_message_pins;
-create policy "workspace members unpin messages" on public.connect_message_pins for delete to authenticated using (exists(select 1 from public.connect_channels c join public.connect_members cm on cm.organization_id=c.organization_id where c.id=channel_id and cm.user_id=auth.uid()));
+create policy "workspace members unpin messages" on public.connect_message_pins for delete to authenticated using (exists(select 1 from public.connect_channels c join public.connect_members cm on cm.organization_id=c.organization_id where c.id=channel_id and cm.user_id=auth.uid()) and exists(select 1 from public.connect_messages m where m.id=message_id and m.channel_id=channel_id));
 drop policy if exists "users read own notifications" on public.connect_notifications;
 create policy "users read own notifications" on public.connect_notifications for select to authenticated using (user_id=auth.uid());
 drop policy if exists "users update own notifications" on public.connect_notifications;
