@@ -263,3 +263,20 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
  .message-actions button{min-height:32px;padding:6px 8px;font-size:10px}
  .search-results-note{margin:0 10px 9px;font-size:11px}
 }
+
+/* Final mobile navigation, channel drawer and notification controls */
+.notification-toggle{position:relative}
+.notification-toggle:focus-visible{outline:2px solid #4bd9f3;outline-offset:2px}
+@media(max-width:640px){
+ .sidebar.mobile-nav-open .main-nav{display:flex;flex-direction:column;gap:4px}
+ .sidebar.mobile-nav-open .main-nav button{width:100%;min-height:43px;justify-content:flex-start;flex-direction:row;gap:12px;padding:11px 13px;font-size:13px;text-align:left}
+ .sidebar.mobile-nav-open .channel-head{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+ .sidebar.mobile-nav-open .channel-list{display:flex;flex-direction:column;align-items:stretch;gap:3px;overflow:visible;padding:4px 0 10px}
+ .sidebar.mobile-nav-open .channel-entry{display:flex;width:100%;min-width:0;flex-shrink:1}
+ .sidebar.mobile-nav-open .channel-entry>button:first-child{display:flex;flex:1;min-width:0;align-items:center;justify-content:flex-start;gap:11px;padding:12px;font-size:13px;text-align:left;white-space:normal;overflow-wrap:anywhere}
+ .sidebar.mobile-nav-open .channel-delete{flex:0 0 auto}
+ .sidebar.mobile-nav-open .sidebar-bottom{display:flex;align-items:center;margin-top:12px}
+ .sidebar.mobile-nav-open .profile-bar{display:flex}
+ .channel-info-panel{z-index:80}
+ .top-action-button.notification-toggle{display:grid}
+}
