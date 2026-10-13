@@ -204,10 +204,15 @@ create policy connect_presence_self_write on public.connect_presence for all to 
 create or replace function public.connect_audit_membership_change()
 returns trigger language plpgsql security definer set search_path=public as $$
 begin
- insert into public.connect_audit_logs(organization_id,actor_id,action,resource_type,resource_id,metadata)
- values(coalesce(new.organization_id,old.organization_id),auth.uid(),tg_op,'membership',coalesce(new.user_id,old.user_id)::text,
- jsonb_build_object('new_role',case when tg_op='DELETE' then null else new.role end));
- return coalesce(new,old);
+ if tg_op='DELETE' then
+  insert into public.connect_audit_logs(organization_id,actor_id,action,resource_type,resource_id,metadata)
+  values(old.organization_id,auth.uid(),'DELETE','membership',old.user_id::text,jsonb_build_object('old_role',old.role));
+  return old;
+ else
+  insert into public.connect_audit_logs(organization_id,actor_id,action,resource_type,resource_id,metadata)
+  values(new.organization_id,auth.uid(),tg_op,'membership',new.user_id::text,jsonb_build_object('new_role',new.role));
+  return new;
+ end if;
 end $$;
 drop trigger if exists connect_members_audit_trigger on public.connect_members;
 create trigger connect_members_audit_trigger after insert or update or delete on public.connect_members
