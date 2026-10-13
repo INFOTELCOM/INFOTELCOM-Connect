@@ -328,3 +328,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
  .channel-info-panel{max-height:calc(100dvh - env(safe-area-inset-top));overflow-y:auto}
  .message-composer textarea{font-size:16px}
 }
+
+/* Connect Pro — conversation export and refined navigation */
+.export-messages-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin-left:auto;padding:8px 12px;border:1px solid rgba(77,178,224,.26);border-radius:10px;background:rgba(13,43,67,.68);color:#b9eaff;font:inherit;font-size:12px;cursor:pointer;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.export-messages-button:hover{background:rgba(24,83,119,.62);border-color:rgba(67,217,245,.65);transform:translateY(-1px)}
+.export-messages-button:focus-visible{outline:2px solid #43d9f5;outline-offset:3px}
+@media(max-width:640px){.export-messages-button{margin-left:0;padding:9px 10px;font-size:12px;min-height:40px}.channel-tabs{flex-wrap:wrap}.export-messages-button svg{width:15px;height:15px}}
