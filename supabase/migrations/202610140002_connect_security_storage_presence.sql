@@ -76,6 +76,25 @@ create policy connect_audit_member_update on public.connect_audit_logs for updat
 drop policy if exists connect_audit_member_delete on public.connect_audit_logs;
 create policy connect_audit_member_delete on public.connect_audit_logs for delete to authenticated using (false);
 
+-- Role changes are enforced inside PostgreSQL, never trusted to the browser.
+create or replace function public.connect_set_member_role(p_organization_id uuid,p_user_id uuid,p_new_role text)
+returns void language plpgsql security definer set search_path=public as $
+declare v_actor_role text;
+declare v_target_role text;
+begin
+ if auth.uid() is null then raise exception 'Authentication required'; end if;
+ select role into v_actor_role from public.connect_members where organization_id=p_organization_id and user_id=auth.uid();
+ if v_actor_role not in ('owner','admin') then raise exception 'Only an owner or administrator can change roles'; end if;
+ if p_new_role not in ('admin','manager','member','guest') then raise exception 'Invalid role'; end if;
+ select role into v_target_role from public.connect_members where organization_id=p_organization_id and user_id=p_user_id;
+ if v_target_role is null then raise exception 'Member not found'; end if;
+ if v_target_role='owner' then raise exception 'The owner role cannot be changed here'; end if;
+ if v_actor_role='admin' and p_new_role in ('admin') then raise exception 'Only the owner can appoint another administrator'; end if;
+ update public.connect_members set role=p_new_role where organization_id=p_organization_id and user_id=p_user_id;
+end $;
+revoke all on function public.connect_set_member_role(uuid,uuid,text) from public,anon;
+grant execute on function public.connect_set_member_role(uuid,uuid,text) to authenticated;
+
 -- Private storage bucket for enterprise files. Existing bucket is not made public.
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
 values('connect-private-files','connect-private-files',false,52428800,
