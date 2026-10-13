@@ -1,0 +1,16 @@
+{
+  "id": "/INFOTELCOM-Connect/",
+  "name": "INFOTELCOM Connect",
+  "short_name": "Connect",
+  "description": "Plateforme collaborative professionnelle INFOTELCOM",
+  "lang": "fr",
+  "start_url": "/INFOTELCOM-Connect/",
+  "scope": "/INFOTELCOM-Connect/",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "orientation": "any",
+  "icons": [
+    {"src": "/INFOTELCOM-Connect/favicon.ico", "sizes": "any", "type": "image/x-icon", "purpose": "any"}
+  ]
+}
