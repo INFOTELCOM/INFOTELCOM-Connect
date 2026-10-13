@@ -21,7 +21,7 @@ Deno.serve(async (req) => {
     const { data: subs, error } = await db.from("connect_push_subscriptions").select("id,endpoint,subscription").eq("user_id", row.user_id);
     if (error) throw error;
     webpush.setVapidDetails(subject, publicKey, privateKey);
-    const payload = JSON.stringify({ title: row.title || "INFOTELCOM Connect", body: row.body || "Nouvelle activité", url: row.channel_id ? "/?channel=" + encodeURIComponent(row.channel_id) : "/", tag: row.id || "connect-notification" });
+    const payload = JSON.stringify({ title: row.title || "INFOTELCOM Connect", body: row.body || "Nouvelle activité", url: "", tag: row.id || "connect-notification" });
     const results = await Promise.all((subs || []).map(async (s) => {
       try { await webpush.sendNotification(s.subscription, payload); return { ok: true }; }
       catch (e) { if (e.statusCode === 404 || e.statusCode === 410) await db.from("connect_push_subscriptions").delete().eq("id", s.id); return { ok: false, status: e.statusCode || 500 }; }
