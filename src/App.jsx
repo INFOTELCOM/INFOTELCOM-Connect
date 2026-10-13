@@ -13,13 +13,13 @@ export default function App(){
  const say=s=>{setNotice(s);window.setTimeout(()=>setNotice(''),5000)};
  useEffect(()=>{if(!supabase){setNotice('Configuration Supabase absente : renseigne .env.local.');setBoot(false);return;}supabase.auth.getSession().then(({data})=>{setSession(data.session);setBoot(false)});const {data:{subscription}}=supabase.auth.onAuthStateChange((_e,s)=>setSession(s));return()=>subscription.unsubscribe()},[]);
  useEffect(()=>{if(session?.user){loadWorkspace()}else{setOrg(null);setMembership(null);setChannels([]);setMessages([]);setMeetings([])}},[session?.user?.id]);
- async function loadWorkspace(){
+ async function loadWorkspace(preferredOrgId=null){
   setBoot(true);
   try{
    const {data:mems,error}=await supabase.from('connect_members').select('organization_id,user_id,role,joined_at').eq('user_id',session.user.id).order('joined_at',{ascending:true});
    if(error)throw error;
    if(!mems?.length){setOrg(null);setMembership(null);return;}
-   const m=mems[0];const {data:o,error:oe}=await supabase.from('connect_organizations').select('*').eq('id',m.organization_id).single();if(oe)throw oe;
+   const m=(preferredOrgId&&mems.find(x=>x.organization_id===preferredOrgId))||mems[0];const {data:o,error:oe}=await supabase.from('connect_organizations').select('*').eq('id',m.organization_id).single();if(oe)throw oe;
    setMembership(m);setOrg(o);await loadChannels(o.id);await loadMeetings(o.id);
    await supabase.from('connect_profiles').upsert({user_id:session.user.id,display_name:displayName||session.user.user_metadata?.display_name||session.user.email?.split('@')[0]||'Membre',updated_at:new Date().toISOString()},{onConflict:'user_id'});
   }catch(e){say(friendly(e))}finally{setBoot(false)}
