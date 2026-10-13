@@ -97,11 +97,8 @@ grant execute on function public.connect_set_member_role(uuid,uuid,text) to auth
 
 -- Private storage bucket for enterprise files. Existing bucket is not made public.
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
-values('connect-private-files','connect-private-files',false,52428800,
- array['application/pdf','image/png','image/jpeg','image/webp','text/plain','text/csv',
- 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
- 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
-on conflict(id) do update set public=false, file_size_limit=excluded.file_size_limit, allowed_mime_types=excluded.allowed_mime_types;
+values('connect-private-files','connect-private-files',false,null,null)
+on conflict(id) do update set public=false;
 
 drop policy if exists connect_storage_member_read on storage.objects;
 create policy connect_storage_member_read on storage.objects for select to authenticated
