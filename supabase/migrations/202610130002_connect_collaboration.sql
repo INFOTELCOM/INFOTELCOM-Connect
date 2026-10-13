@@ -100,6 +100,10 @@ begin
 end $$;
 
 -- Grant only the intended callable functions to signed-in users.
+revoke all on function public.connect_create_invitation(uuid,text,text) from public, anon;
+revoke all on function public.connect_accept_invitation(text) from public, anon;
+revoke all on function public.connect_create_channel(uuid,text,text,boolean) from public, anon;
+revoke all on function public.connect_delete_channel(uuid) from public, anon;
 grant execute on function public.connect_create_invitation(uuid,text,text) to authenticated;
 grant execute on function public.connect_accept_invitation(text) to authenticated;
 grant execute on function public.connect_create_channel(uuid,text,text,boolean) to authenticated;
