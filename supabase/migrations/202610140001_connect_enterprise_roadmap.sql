@@ -121,15 +121,15 @@ create table if not exists public.connect_presence (
 );
 
 -- Shared membership predicates keep data isolated between workspaces.
-create or replace function public.connect_is_org_member(p_org uuid)
+create or replace function public.connect_roadmap_is_org_member(p_org uuid)
 returns boolean language sql stable security definer set search_path=public as $$
  select exists(select 1 from public.connect_members m where m.organization_id=p_org and m.user_id=auth.uid())
 $$;
-create or replace function public.connect_is_org_manager(p_org uuid)
+create or replace function public.connect_roadmap_is_org_manager(p_org uuid)
 returns boolean language sql stable security definer set search_path=public as $$
  select exists(select 1 from public.connect_members m where m.organization_id=p_org and m.user_id=auth.uid() and m.role in ('owner','admin','manager'))
 $$;
-create or replace function public.connect_is_dm_participant(p_conversation uuid)
+create or replace function public.connect_roadmap_is_dm_participant(p_conversation uuid)
 returns boolean language sql stable security definer set search_path=public as $$
  select exists(select 1 from public.connect_dm_participants p where p.conversation_id=p_conversation and p.user_id=auth.uid())
 $$;
@@ -147,58 +147,58 @@ alter table public.connect_audit_logs enable row level security;
 alter table public.connect_presence enable row level security;
 
 drop policy if exists connect_projects_member_select on public.connect_projects;
-create policy connect_projects_member_select on public.connect_projects for select to authenticated using (public.connect_is_org_member(organization_id));
+create policy connect_projects_member_select on public.connect_projects for select to authenticated using (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_projects_manager_write on public.connect_projects;
-create policy connect_projects_manager_write on public.connect_projects for all to authenticated using (public.connect_is_org_manager(organization_id)) with check (public.connect_is_org_manager(organization_id));
+create policy connect_projects_manager_write on public.connect_projects for all to authenticated using (public.connect_roadmap_is_org_manager(organization_id)) with check (public.connect_roadmap_is_org_manager(organization_id));
 drop policy if exists connect_tasks_member_select on public.connect_tasks;
-create policy connect_tasks_member_select on public.connect_tasks for select to authenticated using (public.connect_is_org_member(organization_id));
+create policy connect_tasks_member_select on public.connect_tasks for select to authenticated using (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_tasks_member_insert on public.connect_tasks;
-create policy connect_tasks_member_insert on public.connect_tasks for insert to authenticated with check (public.connect_is_org_member(organization_id) and created_by=auth.uid());
+create policy connect_tasks_member_insert on public.connect_tasks for insert to authenticated with check (public.connect_roadmap_is_org_member(organization_id) and created_by=auth.uid());
 drop policy if exists connect_tasks_manager_update on public.connect_tasks;
-create policy connect_tasks_manager_update on public.connect_tasks for update to authenticated using (public.connect_is_org_manager(organization_id) or assigned_to=auth.uid() or created_by=auth.uid()) with check (public.connect_is_org_member(organization_id));
+create policy connect_tasks_manager_update on public.connect_tasks for update to authenticated using (public.connect_roadmap_is_org_manager(organization_id) or assigned_to=auth.uid() or created_by=auth.uid()) with check (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_tasks_manager_delete on public.connect_tasks;
-create policy connect_tasks_manager_delete on public.connect_tasks for delete to authenticated using (public.connect_is_org_manager(organization_id) or created_by=auth.uid());
+create policy connect_tasks_manager_delete on public.connect_tasks for delete to authenticated using (public.connect_roadmap_is_org_manager(organization_id) or created_by=auth.uid());
 
 drop policy if exists connect_dm_conversations_participant_select on public.connect_dm_conversations;
-create policy connect_dm_conversations_participant_select on public.connect_dm_conversations for select to authenticated using (public.connect_is_org_member(organization_id) and public.connect_is_dm_participant(id));
+create policy connect_dm_conversations_participant_select on public.connect_dm_conversations for select to authenticated using (public.connect_roadmap_is_org_member(organization_id) and public.connect_roadmap_is_dm_participant(id));
 drop policy if exists connect_dm_conversations_member_insert on public.connect_dm_conversations;
-create policy connect_dm_conversations_member_insert on public.connect_dm_conversations for insert to authenticated with check (public.connect_is_org_member(organization_id) and created_by=auth.uid());
+create policy connect_dm_conversations_member_insert on public.connect_dm_conversations for insert to authenticated with check (public.connect_roadmap_is_org_member(organization_id) and created_by=auth.uid());
 drop policy if exists connect_dm_participants_select on public.connect_dm_participants;
-create policy connect_dm_participants_select on public.connect_dm_participants for select to authenticated using (user_id=auth.uid() or public.connect_is_dm_participant(conversation_id));
+create policy connect_dm_participants_select on public.connect_dm_participants for select to authenticated using (user_id=auth.uid() or public.connect_roadmap_is_dm_participant(conversation_id));
 drop policy if exists connect_dm_participants_insert on public.connect_dm_participants;
-create policy connect_dm_participants_insert on public.connect_dm_participants for insert to authenticated with check (public.connect_is_org_member((select organization_id from public.connect_dm_conversations where id=conversation_id)) and (user_id=auth.uid() or public.connect_is_org_manager((select organization_id from public.connect_dm_conversations where id=conversation_id))));
+create policy connect_dm_participants_insert on public.connect_dm_participants for insert to authenticated with check (public.connect_roadmap_is_org_member((select organization_id from public.connect_dm_conversations where id=conversation_id)) and (user_id=auth.uid() or public.connect_roadmap_is_org_manager((select organization_id from public.connect_dm_conversations where id=conversation_id))));
 drop policy if exists connect_dm_messages_participant_select on public.connect_dm_messages;
-create policy connect_dm_messages_participant_select on public.connect_dm_messages for select to authenticated using (public.connect_is_dm_participant(conversation_id));
+create policy connect_dm_messages_participant_select on public.connect_dm_messages for select to authenticated using (public.connect_roadmap_is_dm_participant(conversation_id));
 drop policy if exists connect_dm_messages_participant_insert on public.connect_dm_messages;
-create policy connect_dm_messages_participant_insert on public.connect_dm_messages for insert to authenticated with check (sender_id=auth.uid() and public.connect_is_dm_participant(conversation_id));
+create policy connect_dm_messages_participant_insert on public.connect_dm_messages for insert to authenticated with check (sender_id=auth.uid() and public.connect_roadmap_is_dm_participant(conversation_id));
 drop policy if exists connect_dm_messages_sender_update on public.connect_dm_messages;
-create policy connect_dm_messages_sender_update on public.connect_dm_messages for update to authenticated using (sender_id=auth.uid() and public.connect_is_dm_participant(conversation_id)) with check (sender_id=auth.uid());
+create policy connect_dm_messages_sender_update on public.connect_dm_messages for update to authenticated using (sender_id=auth.uid() and public.connect_roadmap_is_dm_participant(conversation_id)) with check (sender_id=auth.uid());
 drop policy if exists connect_calendar_member_select on public.connect_calendar_events;
-create policy connect_calendar_member_select on public.connect_calendar_events for select to authenticated using (public.connect_is_org_member(organization_id));
+create policy connect_calendar_member_select on public.connect_calendar_events for select to authenticated using (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_calendar_member_insert on public.connect_calendar_events;
-create policy connect_calendar_member_insert on public.connect_calendar_events for insert to authenticated with check (public.connect_is_org_member(organization_id) and created_by=auth.uid());
+create policy connect_calendar_member_insert on public.connect_calendar_events for insert to authenticated with check (public.connect_roadmap_is_org_member(organization_id) and created_by=auth.uid());
 drop policy if exists connect_calendar_member_update on public.connect_calendar_events;
-create policy connect_calendar_member_update on public.connect_calendar_events for update to authenticated using (public.connect_is_org_member(organization_id)) with check (public.connect_is_org_member(organization_id));
+create policy connect_calendar_member_update on public.connect_calendar_events for update to authenticated using (public.connect_roadmap_is_org_member(organization_id)) with check (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_calendar_manager_delete on public.connect_calendar_events;
-create policy connect_calendar_manager_delete on public.connect_calendar_events for delete to authenticated using (public.connect_is_org_manager(organization_id) or created_by=auth.uid());
+create policy connect_calendar_manager_delete on public.connect_calendar_events for delete to authenticated using (public.connect_roadmap_is_org_manager(organization_id) or created_by=auth.uid());
 drop policy if exists connect_file_folders_member_all on public.connect_file_folders;
-create policy connect_file_folders_member_all on public.connect_file_folders for all to authenticated using (public.connect_is_org_member(organization_id)) with check (public.connect_is_org_member(organization_id) and created_by=auth.uid());
+create policy connect_file_folders_member_all on public.connect_file_folders for all to authenticated using (public.connect_roadmap_is_org_member(organization_id)) with check (public.connect_roadmap_is_org_member(organization_id) and created_by=auth.uid());
 drop policy if exists connect_file_versions_member_select on public.connect_file_versions;
-create policy connect_file_versions_member_select on public.connect_file_versions for select to authenticated using (public.connect_is_org_member(organization_id));
+create policy connect_file_versions_member_select on public.connect_file_versions for select to authenticated using (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_file_versions_member_insert on public.connect_file_versions;
-create policy connect_file_versions_member_insert on public.connect_file_versions for insert to authenticated with check (public.connect_is_org_member(organization_id) and uploaded_by=auth.uid());
+create policy connect_file_versions_member_insert on public.connect_file_versions for insert to authenticated with check (public.connect_roadmap_is_org_member(organization_id) and uploaded_by=auth.uid());
 drop policy if exists connect_file_shares_member_select on public.connect_file_shares;
-create policy connect_file_shares_member_select on public.connect_file_shares for select to authenticated using (public.connect_is_org_member(organization_id) and created_by=auth.uid());
+create policy connect_file_shares_member_select on public.connect_file_shares for select to authenticated using (public.connect_roadmap_is_org_member(organization_id) and created_by=auth.uid());
 drop policy if exists connect_file_shares_manager_all on public.connect_file_shares;
-create policy connect_file_shares_manager_all on public.connect_file_shares for all to authenticated using (public.connect_is_org_manager(organization_id)) with check (public.connect_is_org_manager(organization_id) and created_by=auth.uid());
+create policy connect_file_shares_manager_all on public.connect_file_shares for all to authenticated using (public.connect_roadmap_is_org_manager(organization_id)) with check (public.connect_roadmap_is_org_manager(organization_id) and created_by=auth.uid());
 drop policy if exists connect_audit_manager_select on public.connect_audit_logs;
-create policy connect_audit_manager_select on public.connect_audit_logs for select to authenticated using (public.connect_is_org_manager(organization_id));
+create policy connect_audit_manager_select on public.connect_audit_logs for select to authenticated using (public.connect_roadmap_is_org_manager(organization_id));
 drop policy if exists connect_audit_member_insert on public.connect_audit_logs;
-create policy connect_audit_member_insert on public.connect_audit_logs for insert to authenticated with check (public.connect_is_org_member(organization_id) and actor_id=auth.uid());
+create policy connect_audit_member_insert on public.connect_audit_logs for insert to authenticated with check (public.connect_roadmap_is_org_member(organization_id) and actor_id=auth.uid());
 drop policy if exists connect_presence_member_select on public.connect_presence;
-create policy connect_presence_member_select on public.connect_presence for select to authenticated using (public.connect_is_org_member(organization_id));
+create policy connect_presence_member_select on public.connect_presence for select to authenticated using (public.connect_roadmap_is_org_member(organization_id));
 drop policy if exists connect_presence_self_write on public.connect_presence;
-create policy connect_presence_self_write on public.connect_presence for all to authenticated using (user_id=auth.uid() and public.connect_is_org_member(organization_id)) with check (user_id=auth.uid() and public.connect_is_org_member(organization_id));
+create policy connect_presence_self_write on public.connect_presence for all to authenticated using (user_id=auth.uid() and public.connect_roadmap_is_org_member(organization_id)) with check (user_id=auth.uid() and public.connect_roadmap_is_org_member(organization_id));
 
 -- Record privileged membership changes in the audit log.
 create or replace function public.connect_audit_membership_change()
