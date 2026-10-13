@@ -14,3 +14,9 @@ Dans Membres, un propriétaire/administrateur crée une invitation à usage uniq
 
 ## À savoir
 La V1 contient les canaux, messages, fichiers privés et invitations sécurisées. Les appels vidéo, notifications push et conversations privées ne sont pas inclus. Avant une mise en production, tester avec deux comptes et vérifier les politiques RLS dans Supabase Security Advisor.
+## Publication GitHub Pages
+Le workflow `.github/workflows/deploy-pages.yml` construit et publie automatiquement le site après chaque push sur `main`. Dans GitHub > Settings > Pages, sélectionner **GitHub Actions** comme source de publication. URL prévue : https://infotelcom.github.io/INFOTELCOM-Connect/
+
+Dans Supabase > Authentication > URL Configuration, définir l'URL du site comme **Site URL** et ajouter `https://infotelcom.github.io/INFOTELCOM-Connect/` dans les **Redirect URLs**. Cette configuration est nécessaire pour la confirmation d'e-mail et le retour après connexion.
+
+La clé `sb_publishable_...` utilisée côté navigateur est une clé publique prévue à cet effet. Ne jamais publier une clé `service_role`, un mot de passe ou un secret serveur.
