@@ -1,0 +1,1 @@
+// INFOTELCOM Connect service worker
