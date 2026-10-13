@@ -280,3 +280,18 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
  .channel-info-panel{z-index:80}
  .top-action-button.notification-toggle{display:grid}
 }
+
+/* Community creation and member-created groups */
+.community-create{padding:8px 12px 4px;border-top:1px solid rgba(91,158,196,.16);margin-top:8px}
+.community-create-button{width:100%;display:flex;align-items:center;gap:9px;justify-content:flex-start;border:1px solid rgba(61,188,226,.28);border-radius:10px;padding:11px 12px;background:linear-gradient(135deg,rgba(22,75,111,.55),rgba(8,31,52,.7));color:#bfefff;font:inherit;font-size:12px;font-weight:650;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.community-create-button svg:last-child{margin-left:auto}
+.community-create-button:hover{background:rgba(22,96,136,.55);border-color:rgba(72,215,245,.7);transform:translateY(-1px)}
+.channel-head .side-label{letter-spacing:.14em}
+@media(max-width:640px){
+ .community-create{padding:10px 0 4px;margin-top:10px}
+ .community-create-button{min-height:44px;font-size:13px}
+ .sidebar.mobile-nav-open .channel-head{display:flex;align-items:center;justify-content:space-between}
+ .sidebar.mobile-nav-open .channel-list{display:flex;flex-direction:column;align-items:stretch;overflow:visible;gap:4px}
+ .sidebar.mobile-nav-open .channel-entry{width:100%;min-width:0}
+ .sidebar.mobile-nav-open .channel-entry>button:first-child{width:100%;justify-content:flex-start;white-space:normal;overflow-wrap:anywhere}
+}
