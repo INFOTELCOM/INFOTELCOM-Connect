@@ -84,3 +84,20 @@ Ne pas exposer la valeur du secret dans une capture d'écran ou un dépôt. La f
 - Service worker pour afficher les notifications push en arrière-plan.
 
 Les politiques RLS restent essentielles : vérifier les règles d'accès des tables principales avant la mise en production.
+
+## Fondation Connect Enterprise (14 octobre 2026)
+
+La migration additive `supabase/migrations/202610140001_connect_enterprise_roadmap.sql` ajoute la structure de données pour :
+- projets et tâches avec statuts, priorités et échéances ;
+- conversations privées et participants ;
+- événements de calendrier ;
+- dossiers, versions et partages de fichiers ;
+- journal d’audit et présence des membres ;
+- politiques RLS liées à l’appartenance à un espace de travail ;
+- publication Realtime pour les tâches, messages privés et événements.
+
+Cette migration a été appliquée au projet Supabase `faxtrix`. Les écrans Tâches & projets, Calendrier, Vue d’ensemble et Journal de sécurité sont intégrés au code React via `src/Roadmap.jsx`. Après le déploiement GitHub Pages, testez la création d’une tâche et d’un événement avec deux comptes appartenant au même espace, puis vérifiez qu’un compte d’un autre espace ne peut pas lire ces données.
+
+Le manifeste PWA est `public/manifest.webmanifest` et l’icône est `public/icon.svg`. Vérifiez l'installation sur Chrome/Android et Safari/iOS. Le manifeste seul ne garantit pas une expérience hors ligne complète : la mise en cache des pages et des données doit être ajoutée et testée séparément.
+
+Important : cette livraison ajoute la fondation de données pour les conversations privées, les versions/partages de fichiers et la présence, mais les interfaces complètes et les workflows de ces fonctions restent à développer. Ne considérez pas la solution comme auditée ou prête pour des données sensibles avant les tests RLS, la vérification des permissions, les sauvegardes et la restauration.
