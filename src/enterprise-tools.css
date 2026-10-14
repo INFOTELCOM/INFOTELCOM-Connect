@@ -9,3 +9,6 @@
 .et-form textarea{width:100%;resize:vertical;min-height:80px;background:rgba(5,17,31,.8);border:1px solid var(--ic-line,rgba(112,190,231,.2));border-radius:10px;color:var(--text,#edf5ff);padding:11px;outline:none}
 .et-form textarea:focus{border-color:var(--cyan,#56d5ed)}
 @media(max-width:640px){.et-status-post{padding:11px}.et-status-post .et-avatar{flex:0 0 34px}.et-form textarea{font-size:16px}}
+
+/* Recipient suggestions and read receipts */
+.et-read-receipt{color:var(--cyan,#56d5ed);font-weight:600}.et-form datalist{color:var(--text,#edf5ff)}.et-form small.et-muted{margin-top:-5px}@media(max-width:480px){.et-tabs{grid-template-columns:1fr 1fr}.et-heading .secondary{width:100%;justify-content:center}.et-send{align-items:stretch}.et-send input{font-size:16px}.et-message{max-width:94%}.et-list-row .secondary{padding:8px;font-size:12px}}
