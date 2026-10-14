@@ -355,3 +355,25 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
   0%, 100% { box-shadow: 0 0 0 rgba(53, 217, 245, 0); }
   50% { box-shadow: 0 0 22px rgba(53, 217, 245, 0.22); }
 }
+
+
+/* INFOTELCOM Connect — identité de marque et écran de chargement */
+.brandmark.logo-brand{display:flex;align-items:center;justify-content:center;gap:10px;background:transparent!important;color:#edf5ff!important;box-shadow:none!important;border:0!important;letter-spacing:0}
+.logo-brand img{display:block;width:44px;height:44px;object-fit:contain;border-radius:10px;background:#071426}
+.logo-brand span{font-family:Manrope,sans-serif;font-size:13px;font-weight:800;letter-spacing:.06em}
+.sidebar-brand .logo-brand{width:auto;min-width:38px;height:44px;justify-content:flex-start}
+.sidebar-brand .logo-brand img{width:40px;height:40px}
+.loading{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,rgba(28,91,153,.22),transparent 48%),#071426!important;gap:14px!important}
+.loading:before{content:"";position:absolute;z-index:-1;width:220px;height:220px;border-radius:50%;border:1px solid rgba(86,213,237,.12);animation:connect-orbit 5s linear infinite}
+.loading:after{content:"";position:absolute;z-index:-1;width:280px;height:280px;border-radius:50%;border:1px solid rgba(86,213,237,.07);animation:connect-orbit 8s linear infinite reverse}
+.loading .logo-brand{width:auto;height:auto;min-height:74px;animation:connect-arrive .75s cubic-bezier(.2,.8,.2,1) both}
+.loading .logo-brand img{width:68px;height:68px;border-radius:18px;box-shadow:0 10px 36px rgba(0,0,0,.22);animation:connect-breathe 2.6s ease-in-out infinite}
+.loading .logo-brand span{font-size:16px;letter-spacing:.08em}
+.loading>b{font-family:Manrope,sans-serif;font-size:20px;letter-spacing:-.03em;color:#edf5ff!important;animation:connect-arrive .8s .08s both}
+.loading>span{font-size:13px;color:#9fb4d0!important;animation:connect-arrive .8s .16s both}
+.loading>span:after{content:"";display:block;width:104px;height:2px;margin:16px auto 0;border-radius:10px;background:linear-gradient(90deg,transparent,#56d5ed,transparent);transform-origin:left;animation:connect-progress 1.8s ease-in-out infinite}
+@keyframes connect-arrive{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes connect-breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.025)}}
+@keyframes connect-orbit{to{transform:rotate(360deg)}}
+@keyframes connect-progress{0%{transform:scaleX(.15);opacity:.45}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.15);opacity:.45}}
+@media(prefers-reduced-motion:reduce){.loading:before,.loading:after,.loading .logo-brand img,.loading>b,.loading>span,.loading>span:after{animation:none!important}}
