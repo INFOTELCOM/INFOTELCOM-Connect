@@ -461,3 +461,84 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:rgb
   .message-actions{opacity:1}
   .message-delete{opacity:1}
 }
+
+
+/* Aurora Signature — premium clarity across desktop and mobile */
+:root{
+  --aurora-cyan:#78f2ff;
+  --aurora-ice:#e7fbff;
+  --aurora-violet:#b7a5ff;
+  --aurora-mint:#91f5d0;
+  --aurora-glass:rgba(12,29,50,.72);
+  --aurora-edge:rgba(148,221,255,.2);
+}
+body{
+  background:
+    radial-gradient(ellipse at 72% 0%,rgba(71,153,255,.19),transparent 34%),
+    radial-gradient(ellipse at 0% 35%,rgba(74,230,224,.09),transparent 28%),
+    radial-gradient(ellipse at 92% 78%,rgba(148,117,255,.08),transparent 30%),
+    #061321;
+}
+.sidebar{backdrop-filter:blur(22px)}
+.brandmark{
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(135deg,#a3f6ff 0%,#54d9ed 38%,#648fff 100%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 0 32px rgba(73,204,255,.25),0 12px 32px rgba(35,107,227,.25);
+}
+.brandmark:after{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border-radius:inherit;
+  border:1px solid rgba(127,231,255,.16);
+  z-index:-1;
+}
+.workspace-switch,.section-card,.roadmap-panel,.et-panel,.meeting-card,.task-ticket,.call-hero{
+  backdrop-filter:blur(18px);
+  box-shadow:0 22px 65px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.045);
+}
+.topbar{position:sticky;top:0;z-index:20}
+.main-nav button,.channel-entry>button:first-child{transition:color .2s ease,background .2s ease,transform .2s ease}
+.main-nav button:hover,.channel-entry>button:hover{transform:translateX(2px)}
+.primary{
+  background:linear-gradient(115deg,#9af4ff 0%,#56d5ed 34%,#7b9dff 100%);
+  box-shadow:0 8px 28px rgba(63,183,255,.2),inset 0 1px rgba(255,255,255,.5);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+.primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 13px 34px rgba(63,183,255,.3),inset 0 1px rgba(255,255,255,.55)}
+.secondary{backdrop-filter:blur(12px);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.secondary:hover:not(:disabled){transform:translateY(-1px)}
+.page-heading{margin-bottom:30px}
+.page-heading h1,.channel-banner h1,.et-heading h1{
+  text-wrap:balance;
+  background:linear-gradient(105deg,#f4fbff 0%,#c9f5ff 55%,#b8c8ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.eyebrow{color:#8edff1}
+.security-callout{box-shadow:0 12px 32px rgba(0,0,0,.12),inset 0 1px rgba(255,255,255,.025)}
+.section-card,.meeting-card,.roadmap-panel,.et-panel{transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.meeting-card:hover,.task-ticket:hover{border-color:rgba(112,225,255,.36);box-shadow:0 20px 48px rgba(0,0,0,.25),0 0 24px rgba(64,184,255,.055)}
+input,textarea,select,.composer-inner,.stack input,.stack select{transition:border-color .18s ease,box-shadow .18s ease}
+:focus-visible{outline:2px solid var(--aurora-cyan);outline-offset:3px}
+::selection{background:rgba(95,221,244,.32);color:#fff}
+@media(min-width:1200px){
+  .message-area{padding-left:clamp(28px,4vw,64px);padding-right:clamp(28px,4vw,64px)}
+  .channel-banner{padding-left:clamp(30px,4vw,64px);padding-right:clamp(30px,4vw,64px)}
+}
+@media(max-width:640px){
+  .sidebar{background:linear-gradient(180deg,rgba(7,23,41,.98),rgba(7,20,36,.97))}
+  .main-nav button{min-height:52px;border:1px solid transparent}
+  .main-nav button.selected{border-color:rgba(120,242,255,.16);background:linear-gradient(145deg,rgba(35,111,153,.38),rgba(19,51,81,.68));box-shadow:inset 0 1px rgba(255,255,255,.04)}
+  .page-heading h1{font-size:clamp(22px,6vw,29px);line-height:1.15}
+  .call-hero{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px}
+  .call-hero-art{height:145px}
+  .call-hero-copy h2{font-size:25px}
+  .call-hero-copy .primary{width:100%;white-space:normal}
+  .section-card,.meeting-card{border-radius:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  .primary,.secondary,.main-nav button,.channel-entry>button:first-child,.meeting-card,.task-ticket{transition:none!important}
+}
