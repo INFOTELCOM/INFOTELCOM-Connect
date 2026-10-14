@@ -542,3 +542,119 @@ input,textarea,select,.composer-inner,.stack input,.stack select{transition:bord
 @media(prefers-reduced-motion:reduce){
   .primary,.secondary,.main-nav button,.channel-entry>button:first-child,.meeting-card,.task-ticket{transition:none!important}
 }
+
+
+/* INFOTELCOM Connect — Émeraude Atelier: refonte chromatique complète */
+:root{
+  color-scheme:dark;
+  --bg:#111a17;
+  --panel:#19231e;
+  --panel2:#202d25;
+  --line:rgba(215,226,204,.13);
+  --muted:#a4b1a1;
+  --cyan:#c8e0a3;
+  --blue:#8ebf91;
+  --text:#f3f1e7;
+  --ic-cyan:#d0e6a7;
+  --ic-blue:#9cc79b;
+  --ic-border:rgba(193,218,166,.22);
+  --ic-surface:rgba(28,42,33,.82);
+  --aurora-cyan:#d5e8ad;
+  --aurora-ice:#f5f3e8;
+  --aurora-violet:#e9a68d;
+  --aurora-mint:#b8d5a6;
+  --aurora-glass:rgba(25,37,29,.82);
+  --aurora-edge:rgba(198,218,175,.2);
+  --ic-glass:rgba(24,36,28,.82);
+  --ic-glass-strong:rgba(17,27,21,.97);
+  --ic-line:rgba(193,218,166,.18);
+  --ic-glow:0 18px 54px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.025);
+}
+html,body{background:#111a17;color:#f3f1e7}
+body{
+ background:
+  radial-gradient(ellipse at 84% -8%,rgba(191,218,143,.12),transparent 35%),
+  radial-gradient(ellipse at 0% 52%,rgba(105,151,111,.1),transparent 32%),
+  radial-gradient(ellipse at 92% 85%,rgba(216,143,116,.07),transparent 28%),
+  #111a17;
+}
+.sidebar{
+ background:linear-gradient(180deg,rgba(23,34,27,.99),rgba(15,24,19,.99));
+ border-right-color:rgba(193,218,166,.15);
+}
+.brandmark{
+ background:linear-gradient(140deg,#e5edc7 0%,#a8c994 54%,#6f9b78 100%);
+ color:#17231a;
+ box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 12px 34px rgba(105,151,111,.18);
+}
+.brandmark:after{border-color:rgba(220,237,194,.16)}
+.workspace-switch,.section-card,.roadmap-panel,.et-panel,.meeting-card,.task-ticket,.call-hero{
+ border-color:rgba(193,218,166,.16);
+ background:linear-gradient(145deg,rgba(31,45,35,.95),rgba(22,33,26,.96));
+ box-shadow:0 20px 58px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.035);
+}
+.workspace-switch{background:linear-gradient(135deg,#26382b,#1b2a20)}
+.org-avatar,.avatar{background:linear-gradient(145deg,#3c6045,#6e9271);color:#f0f3df}
+.main-nav button,.channel-entry>button:first-child{color:#b2bdae}
+.main-nav button:hover,.channel-entry>button:hover{background:rgba(139,176,126,.12);color:#f4f4e8}
+.main-nav button.selected,.channel-entry.active{
+ background:linear-gradient(100deg,rgba(104,145,98,.25),rgba(47,76,51,.28));
+ color:#d7eab8;
+ box-shadow:inset 2px 0 #cfe5a6;
+}
+.nav-count,.hash-large,.file-icon{background:rgba(105,146,101,.16);color:#d6e8b5;border-color:rgba(193,218,166,.2)}
+.topbar{background:rgba(17,26,21,.84);border-bottom-color:rgba(193,218,166,.13)}
+.breadcrumb,.description,.channel-banner p,.page-heading p{color:#a3b09f}
+.breadcrumb b{color:#f3f1e7}
+.private-pill{color:#c9e7ad;background:rgba(79,117,70,.24)}
+.channel-banner{
+ background:radial-gradient(ellipse at 0 0,rgba(137,173,112,.12),transparent 65%),linear-gradient(100deg,rgba(34,50,37,.82),rgba(17,26,21,.2));
+ border-bottom-color:rgba(193,218,166,.13)
+}
+.channel-banner h1,.page-heading h1,.et-heading h1{
+ background:linear-gradient(105deg,#f7f4e8 0%,#dce8bd 60%,#e9b39a 100%);
+ -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.eyebrow{color:#c4dca1}
+.primary,.send-button{
+ background:linear-gradient(115deg,#dbe9b5 0%,#b5d29b 58%,#91b88e 100%);
+ color:#17231a;border:1px solid rgba(236,244,212,.24);
+ box-shadow:0 8px 24px rgba(117,157,100,.14),inset 0 1px rgba(255,255,255,.45)
+}
+.primary:hover:not(:disabled){filter:brightness(1.05);box-shadow:0 12px 30px rgba(117,157,100,.2)}
+.secondary{background:rgba(40,57,43,.85);border-color:rgba(193,218,166,.2);color:#e5eadb}
+.secondary:hover:not(:disabled){background:rgba(71,99,68,.38);border-color:rgba(204,228,170,.48)}
+.searchbox,.composer-inner,.section-card-head,.stack input,.stack select{
+ background:rgba(20,31,24,.92);border-color:rgba(193,218,166,.18);color:#f3f1e7
+}
+.searchbox:focus-within,.stack input:focus,.stack select:focus{border-color:#c9dfa5;box-shadow:0 0 0 3px rgba(201,223,165,.1)}
+.security-callout{background:linear-gradient(110deg,rgba(54,79,49,.48),rgba(25,39,29,.75));border-color:rgba(177,210,144,.22)}
+.security-icon,.modal-icon{background:rgba(107,147,85,.22);color:#d6e8b5}
+.modal{background:linear-gradient(145deg,rgba(34,49,37,.99),rgba(17,27,21,.99));border-color:rgba(193,218,166,.23)}
+.modal-icon.success{background:rgba(86,143,101,.22);color:#bfe2b2}
+.stack input,.stack select{background:#131f17;color:#f3f1e7}
+.stack input:focus,.stack select:focus{border-color:#c9dfa5}
+.toast{background:rgba(31,48,35,.97);border-color:rgba(193,218,166,.28);color:#f3f1e7}
+.connection-dot{background:#a6d19a;box-shadow:0 0 12px rgba(166,209,154,.35)}
+.empty-symbol{background:linear-gradient(145deg,#26392a,#1b2a20);border-color:rgba(193,218,166,.18);color:#d4e7ae}
+.composer-inner{box-shadow:0 15px 40px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.035)}
+.message-content p{color:#e0e6d8}
+.role-pill{background:rgba(107,139,92,.15);border-color:rgba(193,218,166,.17);color:#d5e2c9}
+.role-pill.owner{color:#d4e8b1;background:rgba(88,133,78,.22);border-color:rgba(193,218,166,.23)}
+.invite-account,.notice,.modal-hint,.link-box{background:rgba(101,139,85,.12);border-color:rgba(193,218,166,.22);color:#dbe8cb}
+.community-create-button{border-color:rgba(193,218,166,.24);background:linear-gradient(135deg,rgba(76,111,68,.3),rgba(25,39,29,.78));color:#e0edc8}
+.community-create-button:hover{background:rgba(80,121,70,.28);border-color:rgba(211,232,175,.55)}
+.search-submit{background:rgba(95,132,81,.2);color:#d8e8b8;border-color:rgba(193,218,166,.18)}
+.reaction-chip:hover,.message-tool:hover,.reaction-chip.selected,.message-tool.pinned{border-color:rgba(203,228,166,.55);background:rgba(91,130,74,.22);color:#e3f1c6}
+.notifications-center,.global-search-results{background:rgba(20,31,24,.98);border-color:rgba(193,218,166,.23)}
+.notification-item:hover,.global-search-result:hover,.notification-item.unread{background:rgba(105,146,85,.13)}
+.notification-dot{background:#cfe5a6}
+.export-messages-button{background:rgba(54,78,48,.34);border-color:rgba(193,218,166,.22);color:#e0edc8}
+.export-messages-button:hover{background:rgba(77,113,67,.36);border-color:rgba(211,232,175,.55)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline-color:#d6e9ad}
+::selection{background:rgba(198,224,157,.3);color:#fff}
+@media(max-width:640px){
+ .sidebar{background:linear-gradient(180deg,rgba(23,34,27,.99),rgba(17,27,21,.98))}
+ .main-nav button.selected{border-color:rgba(207,229,166,.2);background:linear-gradient(145deg,rgba(85,126,72,.27),rgba(35,56,38,.7));box-shadow:inset 0 1px rgba(255,255,255,.04)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
