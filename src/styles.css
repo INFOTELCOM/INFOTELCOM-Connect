@@ -355,3 +355,109 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
   0%, 100% { box-shadow: 0 0 0 rgba(53, 217, 245, 0); }
   50% { box-shadow: 0 0 22px rgba(53, 217, 245, 0.22); }
 }
+
+
+/* INFOTELCOM Connect — refreshed responsive visual system */
+:root{
+  --ic-glass:rgba(12,31,51,.76);
+  --ic-glass-strong:rgba(8,24,42,.94);
+  --ic-line:rgba(112,190,231,.2);
+  --ic-glow:0 18px 54px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.025);
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  background:
+    radial-gradient(ellipse at 78% -8%,rgba(35,139,220,.19),transparent 36%),
+    radial-gradient(ellipse at 2% 46%,rgba(25,194,211,.075),transparent 32%),
+    #061322;
+}
+.sidebar{
+  background:linear-gradient(180deg,rgba(7,23,41,.98),rgba(5,17,31,.98));
+  border-right-color:rgba(102,181,223,.16);
+  box-shadow:8px 0 35px rgba(0,0,0,.08);
+}
+.brandmark{box-shadow:0 0 0 5px rgba(74,202,232,.06),0 12px 36px rgba(28,135,230,.25)}
+.workspace-switch,.section-card,.section-card-head,.roadmap-panel,.et-panel,.meeting-card{
+  box-shadow:var(--ic-glow);
+}
+.workspace-switch{background:linear-gradient(135deg,rgba(20,49,77,.9),rgba(10,28,47,.9));border-color:var(--ic-line)}
+.main-panel{background:linear-gradient(180deg,rgba(6,19,34,.16),rgba(6,19,34,0))}
+.topbar{background:rgba(6,20,36,.72);backdrop-filter:blur(18px);border-bottom-color:rgba(103,184,227,.16)}
+.channel-banner{background:radial-gradient(ellipse at 0 0,rgba(37,132,177,.18),transparent 65%),linear-gradient(100deg,rgba(13,36,59,.78),rgba(7,20,35,.15))}
+.hash-large{box-shadow:inset 0 1px rgba(255,255,255,.05),0 10px 26px rgba(0,0,0,.13)}
+.composer-inner{border-color:rgba(79,177,220,.3);background:linear-gradient(145deg,rgba(12,31,51,.98),rgba(7,22,38,.98));box-shadow:0 15px 40px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.035)}
+.message-content p{letter-spacing:.005em}
+.message-avatar,.avatar{box-shadow:0 0 0 2px rgba(78,194,225,.06)}
+.section-card,.roadmap-panel,.et-panel,.meeting-card,.task-ticket{
+  border-color:rgba(102,174,218,.19);
+  background:linear-gradient(145deg,rgba(13,34,55,.94),rgba(7,23,40,.94));
+  border-radius:16px;
+}
+.page-content{max-width:1180px}
+.page-heading h1,.et-heading h1{letter-spacing:-.045em}
+.primary,.secondary{min-height:40px;border-radius:11px}
+.secondary{background:rgba(19,43,67,.85);border-color:rgba(112,177,216,.24)}
+input,textarea,select{max-width:100%}
+input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:rgba(67,217,245,.75)!important}
+.modal-backdrop{background:rgba(1,9,18,.76)}
+.modal{background:linear-gradient(145deg,rgba(15,37,60,.98),rgba(5,18,33,.99))}
+.toast{backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,.38)}
+/* A clear touch target and unclipped content on tablets and phones. */
+@media(max-width:900px){
+  .page-content{max-width:100%;padding-left:22px;padding-right:22px}
+  .topbar{gap:12px}
+  .meetings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .task-kanban{overflow-x:auto;overscroll-behavior-x:contain}
+}
+@media(max-width:640px){
+  html,body,#root{max-width:100%;overflow-x:clip}
+  .app-shell{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+  .topbar{padding-top:calc(8px + env(safe-area-inset-top))}
+  .channel-banner{align-items:flex-start}
+  .channel-banner h1{overflow-wrap:anywhere}
+  .member-indicator{white-space:normal}
+  .message-area{padding-left:12px;padding-right:12px}
+  .message{min-width:0}
+  .message-content{min-width:0}
+  .message-meta{row-gap:3px}
+  .composer{bottom:calc(64px + env(safe-area-inset-bottom));padding-bottom:8px}
+  .mobile-bottom-nav{padding-bottom:calc(7px + env(safe-area-inset-bottom))}
+  .page-content{padding:18px 12px calc(28px + env(safe-area-inset-bottom))}
+  .page-heading{width:100%}
+  .page-heading>button,.page-heading>.secondary{width:100%}
+  .roadmap-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .roadmap-stats article{min-width:0}
+  .roadmap-tabs,.et-tabs{display:flex;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;white-space:nowrap;scrollbar-width:none}
+  .roadmap-tabs::-webkit-scrollbar,.et-tabs::-webkit-scrollbar{display:none}
+  .roadmap-tabs button,.et-tabs button{flex:0 0 auto}
+  .task-kanban{display:flex;gap:12px;margin-right:-12px;padding:0 12px 12px 0}
+  .task-lane{flex:0 0 min(84vw,310px);min-width:0}
+  .et-grid{grid-template-columns:minmax(0,1fr)}
+  .et-heading{align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .et-heading>.secondary{width:100%}
+  .et-form input,.et-form select,.et-send input{min-width:0;width:100%}
+  .et-list-row{min-width:0;flex-wrap:wrap}
+  .et-list-row>div{min-width:0;overflow-wrap:anywhere}
+  .meetings-grid{grid-template-columns:minmax(0,1fr)}
+  .meeting-card h3{line-height:1.35}
+  .roadmap-panel-head,.et-panel-head{gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .roadmap-panel-head button,.et-panel-head button{max-width:100%}
+  .section-card-head{gap:10px;padding:14px}
+  .member-row,.file-row{align-items:flex-start}
+  .member-row .role-pill{margin-left:auto}
+  .modal-backdrop{padding:8px}
+  .modal{padding-left:16px;padding-right:16px}
+}
+@media(max-width:390px){
+  .top-actions{gap:3px}
+  .top-action-button,.icon-button{min-width:38px;min-height:38px}
+  .searchbox{padding-left:8px;padding-right:7px}
+  .searchbox input{font-size:13px}
+  .roadmap-stats{gap:8px}
+  .roadmap-stats article{padding:12px}
+  .roadmap-stats strong{font-size:22px}
+}
+@media(hover:none){
+  .message-actions{opacity:1}
+  .message-delete{opacity:1}
+}
