@@ -592,3 +592,99 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 ::selection{background:#c6e09d4d;color:#fff}
 @media(max-width:640px){.sidebar{background:linear-gradient(180deg,#17221b,#111b15fa)}.main-nav button.selected{border-color:#cfe5a633;background:linear-gradient(145deg,#557e4845,#233826b3);box-shadow:inset 0 1px #ffffff0a}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* INFOTELCOM Connect — Émeraude Atelier (thème clair professionnel) */
+:root{
+ color-scheme:light;
+ --bg:#f5f6ef;--panel:#fffdf8;--panel2:#f0f3e9;--line:rgba(37,75,54,.16);
+ --muted:#68796c;--text:#20382b;--cyan:#287a50;--blue:#376e4a;
+ font-family:'DM Sans',sans-serif;color:#20382b;background:#f5f6ef;
+}
+body{background:radial-gradient(ellipse at 88% 0%,rgba(191,211,163,.30),transparent 34%),linear-gradient(180deg,#f7f7f0,#eff3e9)!important;color:#20382b}
+button,input,textarea,select{color:inherit}
+.sidebar{background:#173d2b!important;border-right:1px solid rgba(255,255,255,.12)!important;color:#f5f4e9}
+.sidebar-brand strong,.sidebar-brand strong i{color:#fff8e9!important}
+.sidebar-brand span,.side-label,.sidebar .side-label,.sidebar-bottom,.profile-text span{color:#b9cbb7!important}
+.brandmark{background:linear-gradient(145deg,#dce8b9,#a8c98a)!important;color:#173d2b!important;box-shadow:0 8px 28px #0a251b55!important}
+.workspace-switch{background:#214a35!important;border-color:#4e7158!important;color:#fff8e9!important}
+.org-avatar,.avatar{background:linear-gradient(145deg,#dce8b9,#b5d0a1)!important;color:#214a35!important}
+.main-nav button,.channel-entry>button:first-child{color:#d1dfce!important}
+.main-nav button:hover,.channel-entry>button:hover{background:#2a5740!important;color:#fff!important}
+.main-nav button.selected{background:linear-gradient(90deg,#396b4c,#2a5740)!important;color:#fff8e9!important;box-shadow:inset 3px 0 #e1b17a!important}
+.nav-count{background:#42694d!important;color:#fff8e9!important}
+.channel-entry.active{background:#244d38!important}
+.channel-entry.active>button:first-child{color:#f4dfbd!important}
+.connection-dot{background:#a8d38d!important;box-shadow:0 0 12px #a8d38d77!important}
+.main-panel{background:transparent!important}
+.topbar{background:rgba(255,253,248,.84)!important;border-color:var(--line)!important;backdrop-filter:blur(16px)}
+.breadcrumb,.breadcrumb b{color:#2d4936!important}
+.topbar-sub .description,.description{color:#6b7b6b!important}
+.searchbox{background:#fffdf8!important;border-color:#dbe3d5!important;color:#657766!important}
+.searchbox input{color:#20382b!important}
+.channel-banner{background:linear-gradient(100deg,rgba(221,233,208,.68),rgba(255,253,248,.18))!important;border-color:var(--line)!important}
+.channel-banner h1,.page-heading h1{color:#20382b!important}
+.channel-banner p,.page-heading p{color:#697b6a!important}
+.hash-large,.empty-symbol,.file-icon{background:#e8efdf!important;border-color:#d3dfcc!important;color:#2b7049!important}
+.member-indicator,.message-meta time{color:#6e806e!important}
+.message-content p{color:#344c3a!important}
+.message-meta b{color:#20382b!important}
+.composer-inner,.section-card,.auth-card,.modal,.meeting-card,.et-panel,.et-heading,.enterprise-tools .et-panel{
+ background:#fffdf8!important;border-color:#dce4d5!important;color:#20382b!important;box-shadow:0 12px 35px rgba(36,68,43,.06)!important
+}
+.composer-inner{border-color:#d3dfce!important}
+.composer textarea{color:#20382b!important}
+.composer textarea::placeholder{color:#879587!important}
+.composer-tools,.bottom-note,.muted,.small-note,.et-muted{color:#68796c!important}
+.primary{background:linear-gradient(120deg,#2f8051,#246541)!important;color:#fffdf6!important;box-shadow:0 7px 20px rgba(35,101,64,.18)!important}
+.primary:hover{filter:brightness(1.08)}
+.secondary,.tiny-icon,.icon-button{background:#f0f4eb!important;border:1px solid #dbe4d5!important;color:#355640!important}
+.secondary:hover,.tiny-icon:hover,.icon-button:hover{background:#e4eddd!important;color:#21472f!important}
+.security-callout{background:linear-gradient(110deg,#edf4e7,#fffdf8)!important;border-color:#d5e2cd!important}
+.security-icon,.modal-icon{background:#e1edd8!important;color:#2d7548!important}
+.section-card-head,.member-row,.file-row{border-color:#e6ebdf!important}
+.member-info b,.section-card-head h2,.modal h2,.auth-card h1{color:#20382b!important}
+.member-info span,.section-card-head span{color:#718171!important}
+.role-pill{background:#edf2e8!important;color:#47614a!important;border-color:#d8e2d1!important}
+.role-pill.owner{background:#dff0df!important;color:#236b43!important;border-color:#b9d9ba!important}
+.stack label{color:#425d46!important}
+.stack input,.stack select,.stack textarea,.et-form input,.et-form select,.et-form textarea,.et-send input{
+ background:#fff!important;border:1px solid #d6e0d2!important;color:#20382b!important
+}
+.stack input:focus,.stack select:focus,.stack textarea:focus{border-color:#70a67b!important;box-shadow:0 0 0 3px rgba(65,130,78,.12)!important}
+.stack input::placeholder,.et-form input::placeholder,.et-form textarea::placeholder{color:#8b998a!important}
+.auth-page,.loading{background:radial-gradient(ellipse at 20% 10%,#e1ebd6,transparent 42%),#f5f6ef!important}
+.auth-card{border-radius:24px!important}
+.modal-backdrop{background:rgba(20,42,27,.48)!important}
+.modal{background:linear-gradient(145deg,#fffdf8,#f4f6ed)!important}
+.modal-hint,.link-box,.invite-account{background:#edf3e7!important;border-color:#d4e2cd!important;color:#426348!important}
+.toast{background:#214a35!important;border-color:#3b6d4d!important;color:#fffdf4!important}
+.call-hero{background:radial-gradient(ellipse at 10% 50%,rgba(159,193,132,.30),transparent 45%),linear-gradient(125deg,#eaf1e1,#fffdf8 72%)!important;border-color:#d6e3ce!important;box-shadow:0 18px 45px rgba(38,72,44,.08)!important}
+.call-hero-copy h2,.calls-section-title h2,.meeting-card h3{color:#20382b!important}
+.call-hero-copy p,.calls-section-title p,.meeting-time{color:#697b6a!important}
+.call-hero-icon{background:linear-gradient(145deg,#dbe9bf,#80b68a)!important;color:#21472f!important;box-shadow:0 12px 40px rgba(53,119,68,.18)!important}
+.call-orbit{border-color:rgba(46,117,65,.20)!important}
+.meeting-icon{background:#e2edd9!important;color:#2f8051!important}
+.meeting-url{background:#f4f7ef!important;border-color:#dce5d5!important;color:#2f7047!important}
+.meeting-card{background:linear-gradient(145deg,#fffdf8,#f7f8f1)!important}
+.meeting-status{color:#2f8051!important}
+.et-heading h1,.et-panel h2,.et-panel h3,.et-list-row b,.et-conversation b{color:#20382b!important}
+.et-tabs{border-color:#dce4d5!important}
+.et-tabs button{color:#627563!important}
+.et-tabs button.active{background:#e7f0df!important;color:#286d43!important}
+.et-list-row,.et-status-post,.et-attachment,.et-conversation{border-color:#e3e9de!important}
+.et-conversation{background:#fffdf8!important;color:#314d39!important}
+.et-conversation.active{background:#eaf2e4!important}
+.et-message{background:#f0f4eb!important;color:#20382b!important}
+.et-message.mine{background:#e1efdf!important}
+.et-message p{color:#20382b!important}
+.enterprise-tools .eyebrow,.et-heading .eyebrow{color:#658269!important}
+a{color:#2b7548}
+:focus-visible{outline:3px solid rgba(58,129,74,.45)!important;outline-offset:2px}
+::selection{background:#cde2bf;color:#173d2b}
+@media(max-width:640px){
+ .sidebar{background:#173d2b!important}
+ .topbar{padding:12px 14px}
+ .page-content{padding:22px 14px}
+ .call-hero{padding:18px!important}
+}
