@@ -46,14 +46,14 @@ create index if not exists connect_join_requests_org_status_idx on public.connec
 alter table public.connect_workspace_join_requests enable row level security;
 drop policy if exists connect_join_requests_discover on public.connect_workspace_join_requests;
 create policy connect_join_requests_discover on public.connect_workspace_join_requests for select to authenticated
-using (user_id=auth.uid() or exists(select 1 from public.connect_members m where m.organization_id=organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')));
+using (user_id=auth.uid() or exists(select 1 from public.connect_members m where m.organization_id=connect_workspace_join_requests.organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')));
 drop policy if exists connect_join_requests_create_self on public.connect_workspace_join_requests;
 create policy connect_join_requests_create_self on public.connect_workspace_join_requests for insert to authenticated
-with check(user_id=auth.uid() and status='pending' and exists(select 1 from public.connect_organizations o where o.id=organization_id and o.discoverable=true) and not exists(select 1 from public.connect_members m where m.organization_id=organization_id and m.user_id=auth.uid()));
+with check(user_id=auth.uid() and status='pending' and exists(select 1 from public.connect_organizations o where o.id=connect_workspace_join_requests.organization_id and o.discoverable=true) and not exists(select 1 from public.connect_members m where m.organization_id=connect_workspace_join_requests.organization_id and m.user_id=auth.uid()));
 drop policy if exists connect_join_requests_review on public.connect_workspace_join_requests;
 create policy connect_join_requests_review on public.connect_workspace_join_requests for update to authenticated
-using(exists(select 1 from public.connect_members m where m.organization_id=organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')))
-with check(status in ('approved','rejected','pending') and exists(select 1 from public.connect_members m where m.organization_id=organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')));
+using(exists(select 1 from public.connect_members m where m.organization_id=connect_workspace_join_requests.organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')))
+with check(status in ('approved','rejected','pending') and exists(select 1 from public.connect_members m where m.organization_id=connect_workspace_join_requests.organization_id and m.user_id=auth.uid() and m.role in ('owner','admin','manager')));
 
 -- Directory shows only explicitly discoverable workspaces, never private member/file data.
 alter table public.connect_organizations enable row level security;
