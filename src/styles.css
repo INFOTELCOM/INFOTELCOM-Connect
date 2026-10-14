@@ -940,3 +940,92 @@ a{color:#28764a!important}
 @media(max-width:800px){.sidebar{background:linear-gradient(165deg,#174b37,#0d3533)!important}.topbar{padding:12px 14px}.page-content{padding:22px 14px}.channel-banner,.page-heading{border-radius:16px!important}}
 @media(max-width:640px){.sidebar{border-radius:0 0 18px 18px}.main-nav button.selected{border-radius:10px!important}.message-area{padding:14px 10px}.message{padding:10px;border-radius:13px}.channel-banner{padding:16px 13px}.composer{padding:0 10px 10px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* INFOTELCOM identity refresh — clean white and corporate blue */
+:root{
+ --bg:#f5f8fc;--panel:#ffffff;--panel2:#edf4fc;--line:#dce6f2;
+ --muted:#687d98;--cyan:#1688ee;--blue:#0756d8;--text:#172c49;
+ color-scheme:light;
+}
+html,body{background:#f5f8fc!important;color:#172c49!important}
+body{background:radial-gradient(ellipse at 88% 0%,rgba(29,126,238,.07),transparent 34%),linear-gradient(145deg,#fff,#f2f7fd 75%,#edf4fc)!important;background-attachment:fixed!important}
+.app-shell,.app-shell:before{background:transparent!important}
+.sidebar{background:linear-gradient(180deg,#fff 0%,#f8fbff 100%)!important;border-right:1px solid #dce6f2!important;box-shadow:8px 0 30px rgba(24,69,126,.04)!important}
+.sidebar-brand{padding-bottom:20px}
+.brandmark{background:#fff!important;color:transparent!important;border:1px solid #e1eaf6!important;box-shadow:0 5px 16px rgba(12,74,153,.09)!important;position:relative;overflow:hidden}
+.brandmark:before{content:"";position:absolute;inset:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='white'/%3E%3Cpath d='M18 64V37Q18 24 32 24H51L44 39H35Q31 39 31 44V64Z' fill='%230d56d9'/%3E%3Cpath d='M45 64L55 24H73L69 39H62L56 64Z' fill='%230d56d9'/%3E%3Cpath d='M60 18H80V26H60Z' fill='%230aa7ee'/%3E%3Cpath d='M79 9Q91 14 92 26M75 14Q84 18 85 27' fill='none' stroke='%230d56d9' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat;background-size:contain}
+.brandmark.small{background:#fff!important}
+.sidebar-brand strong,.workspace-name b{color:#193453!important}
+.sidebar-brand strong i{color:#0756d8!important}
+.sidebar-brand span,.side-label,.eyebrow{color:#7389a5!important}
+.workspace-switch{background:#fff!important;border-color:#dce6f2!important;color:#193453!important;box-shadow:0 3px 12px rgba(24,69,126,.035)!important}
+.org-avatar,.avatar,.message-avatar{background:linear-gradient(145deg,#e5f1ff,#c8defb)!important;color:#0756b9!important}
+.main-nav button,.channel-entry>button:first-child{color:#536a86!important}
+.main-nav button:hover,.channel-entry>button:hover{background:#edf5ff!important;color:#0756d8!important;transform:translateX(2px)}
+.main-nav button.selected{background:linear-gradient(100deg,#e7f1ff,#f5f9ff)!important;color:#0756d8!important;box-shadow:inset 3px 0 #0866df!important}
+.nav-count{background:#e6f0ff!important;color:#0756b9!important;border:1px solid #d5e5fb!important}
+.profile-bar{border-color:#e1eaf5!important}
+.sidebar-bottom,.profile-text span{color:#7388a2!important}
+.main-panel{background:transparent!important}
+.topbar{background:rgba(255,255,255,.9)!important;border-bottom:1px solid #dce6f2!important;backdrop-filter:blur(20px)}
+.breadcrumb,.breadcrumb b{color:#254567!important}.breadcrumb span{color:#a1b1c4!important}
+.description,.topbar-sub{color:#7387a0!important}
+.searchbox{background:#f8fbff!important;border:1px solid #dce6f2!important;box-shadow:0 3px 12px rgba(24,69,126,.035)!important}
+.searchbox input{color:#193453!important}.searchbox input::placeholder{color:#8294aa!important}
+.top-action-button{color:#526d8c!important}.top-action-button:hover{background:#edf5ff!important;color:#0756d8!important}
+.top-avatar{border-color:#c8dcf5!important}
+.channel-banner,.page-heading{background:linear-gradient(110deg,rgba(255,255,255,.98),rgba(242,247,255,.98))!important;border:1px solid #dce7f5!important;border-radius:18px!important;box-shadow:0 8px 25px rgba(24,69,126,.045)!important}
+.channel-banner h1,.page-heading h1{color:#172f4e!important}
+.channel-banner p,.page-heading p{color:#7387a0!important}
+.hash-large,.empty-symbol,.file-icon,.security-icon,.meeting-icon{background:linear-gradient(145deg,#eaf3ff,#d7e8ff)!important;color:#075bc5!important;border:1px solid #d6e6fa!important;box-shadow:none!important}
+.message-area{background:transparent!important}
+.message{padding:12px 14px;margin-bottom:10px;border:1px solid transparent!important;border-radius:14px;transition:background .18s,border-color .18s}
+.message:hover{background:rgba(255,255,255,.9)!important;border-color:#e1eaf5!important}
+.message-content p{color:#304967!important}.message-meta b{color:#174b8b!important}
+.message-meta time,.member-indicator{color:#7b8da5!important}
+.message-delete,.message-actions button,.reaction-button,.message-toolbar button,.reaction-chip,.message-tool{background:#fff!important;border:1px solid #dce6f2!important;color:#536d89!important;border-radius:9px!important}
+.reaction-chip.selected,.message-tool.pinned{background:#e8f2ff!important;color:#0756d8!important;border-color:#c8ddfa!important}
+.composer-inner,.section-card,.modal,.meeting-card,.et-panel,.enterprise-tools .et-panel{background:rgba(255,255,255,.97)!important;color:#193453!important;border:1px solid #dce6f2!important;border-radius:16px!important;box-shadow:0 8px 28px rgba(24,69,126,.055)!important;backdrop-filter:blur(14px)}
+.composer-inner{border-radius:14px!important}.composer-inner:focus-within{border-color:#80b5f5!important;box-shadow:0 0 0 3px rgba(22,113,222,.09)!important}
+.composer textarea{color:#193453!important}.composer textarea::placeholder{color:#8a9bb0!important}
+.composer-tools,.bottom-note,.muted,.small-note,.et-muted{color:#788ba2!important}
+.primary{background:linear-gradient(120deg,#0876e8,#0756d8)!important;color:white!important;border:1px solid #0756d8!important;border-radius:9px!important;box-shadow:0 5px 14px rgba(7,86,216,.13)!important}
+.primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.secondary,.tiny-icon,.icon-button{background:#fff!important;border:1px solid #dce6f2!important;color:#385879!important;border-radius:9px!important}
+.secondary:hover,.tiny-icon:hover,.icon-button:hover{background:#edf5ff!important;color:#0756d8!important}
+.section-card-head,.member-row,.file-row,.section-card-head{border-color:#e4ecf6!important}
+.member-info b,.section-card-head h2,.modal h2,.auth-card h1,.et-heading h1,.et-panel h2,.et-panel h3,.et-list-row b,.et-conversation b{color:#193453!important}
+.member-info span,.section-card-head span{color:#7589a1!important}
+.role-pill{background:#f0f5fb!important;color:#496584!important;border-color:#dce6f2!important}
+.role-pill.owner{background:#e5f1ff!important;color:#0756b9!important;border-color:#cfe2fb!important}
+.stack label{color:#45617f!important}
+.stack input,.stack select,.stack textarea,.et-form input,.et-form select,.et-form textarea,.et-send input{background:#fff!important;border:1px solid #d7e3f1!important;color:#193453!important;border-radius:9px!important}
+.stack input::placeholder,.et-form input::placeholder,.et-form textarea::placeholder,.et-send input::placeholder{color:#8a9bb0!important}
+.stack input:focus,.stack select:focus,.stack textarea:focus{border-color:#6aa7ef!important;box-shadow:0 0 0 3px rgba(7,86,216,.09)!important}
+.auth-page,.loading{background:radial-gradient(ellipse at 20% 10%,#eaf3ff,transparent 42%),#f5f8fc!important}
+.auth-card{background:rgba(255,255,255,.98)!important;border:1px solid #dce6f2!important;box-shadow:0 20px 60px rgba(24,69,126,.09)!important}
+.auth-card h1,.modal h2{color:#193453!important}
+.modal-backdrop{background:rgba(21,43,72,.38)!important}
+.modal{background:linear-gradient(145deg,#fff,#f5f9ff)!important}
+.modal-hint,.link-box,.invite-account,.security-callout{background:#f0f6ff!important;border-color:#dce8f8!important;color:#476482!important}
+.toast{background:#123b70!important;border-color:#2a65a5!important;color:white!important}
+.call-hero{background:linear-gradient(110deg,#edf5ff,#fff 65%,#f6f9ff)!important;border-color:#dce7f5!important;box-shadow:0 8px 28px rgba(24,69,126,.05)!important}
+.call-hero-copy h2,.calls-section-title h2,.meeting-card h3{color:#193453!important}
+.call-hero-copy p,.calls-section-title p,.meeting-time{color:#7387a0!important}
+.call-hero-icon{background:linear-gradient(145deg,#d7eaff,#79b5fa)!important;color:#064aab!important;box-shadow:0 8px 22px rgba(7,86,216,.12)!important}
+.call-orbit{border-color:rgba(7,86,216,.14)!important}
+.meeting-url{background:#f5f9ff!important;border-color:#dce7f5!important;color:#0756b9!important}
+.meeting-status{color:#167449!important}
+.et-tabs{border-color:#dce6f2!important}.et-tabs button{color:#7286a0!important}.et-tabs button.active{background:#edf5ff!important;color:#0756d8!important;border-bottom:2px solid #075fe0!important}
+.et-list-row,.et-status-post,.et-attachment,.et-conversation{border-color:#e1eaf5!important}
+.et-conversation{background:#fff!important;color:#304967!important}.et-conversation.active{background:#edf5ff!important}
+.et-message{background:#f4f8fe!important;color:#304967!important;border:1px solid #e0eaf6!important;border-radius:14px!important}
+.et-message.mine{background:#e9f3ff!important}.et-message p{color:#304967!important}
+.et-heading .eyebrow,.enterprise-tools .eyebrow{color:#7288a4!important}
+a{color:#0756d8!important}
+:focus-visible{outline:3px solid rgba(7,86,216,.35)!important;outline-offset:3px}
+::selection{background:#cfe3ff;color:#123b70}
+@media(max-width:800px){.sidebar{background:linear-gradient(180deg,#fff,#f8fbff)!important}.topbar{padding:12px 14px}.page-content{padding:22px 14px}.channel-banner,.page-heading{border-radius:14px!important}}
+@media(max-width:640px){.sidebar{border-radius:0 0 16px 16px}.main-nav button.selected{border-radius:9px!important}.message-area{padding:14px 10px}.message{padding:10px;border-radius:12px}.channel-banner{padding:15px 13px}.composer{padding:0 10px 10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
