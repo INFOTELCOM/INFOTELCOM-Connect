@@ -1160,3 +1160,57 @@ table td,table th{border-color:var(--line)!important}
   .page-content{padding:18px 14px!important}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Design system v2 — bleu intégral, calme, discret et professionnel */
+:root{
+  --bg:#F7F9FD;
+  --soft:#F1F5FC;
+  --ink:#172B4D;
+  --mut:#71809B;
+  --line:#E5EBF5;
+  --navy:#15356B;
+  --blue:#315EAB;
+  --sun:#DCE7F8;
+}
+html,body{background:#F7F9FD!important;color:#172B4D!important}
+body{font-family:Inter,'Segoe UI',system-ui,sans-serif!important;font-size:14px!important}
+.sidebar{background:#15356B!important;color:#EAF0FB!important;border-right:1px solid #244579!important}
+.sidebar-brand,.sidebar-brand *{color:#F5F8FF!important}
+.brandmark{background:#244779!important;color:#fff!important;border:1px solid #35598C!important;box-shadow:none!important}
+.sidebar button,.sidebar a,.nav-item{color:#CFD9EC!important;border-radius:8px!important;transition:background .16s ease,color .16s ease!important}
+.sidebar button:hover,.sidebar a:hover,.nav-item:hover{background:#1D427C!important;color:#fff!important}
+.sidebar button.active,.sidebar .active,.nav-item.active{background:#244A86!important;color:#fff!important;border-left:2px solid #9DB9E8!important}
+.topbar{background:#fff!important;color:#20385E!important;border-bottom:1px solid #E7ECF5!important;box-shadow:none!important}
+.page-content,.app-shell{background:#F7F9FD!important}
+.page-heading,.channel-banner{background:#fff!important;border:1px solid #E8EDF6!important;border-radius:12px!important;box-shadow:none!important}
+.panel,.stat,.card,.modal,.dialog,.settings-card,.meeting-card,.et-panel{
+ background:#fff!important;color:#243957!important;border:1px solid #E8EDF5!important;border-radius:12px!important;
+ box-shadow:0 2px 8px rgba(29,55,96,.025)!important
+}
+h1,h2,h3,h4,.page-title,.section-title{color:#1A3155!important;letter-spacing:-.02em!important}
+p,.muted,.subtitle,.page-description{color:#77859D!important}
+button,.btn,.primary-button,.action-button{box-shadow:none!important;transition:background .16s ease,border-color .16s ease!important}
+button:not(.sidebar button),.btn,.primary-button,.secondary-button,.icon-button{border-radius:8px!important}
+button.primary,.btn-primary,.primary-button,.action-button.primary{
+ background:#315EAB!important;color:#fff!important;border:1px solid #315EAB!important
+}
+button.primary:hover,.btn-primary:hover,.primary-button:hover,.action-button.primary:hover{background:#284F92!important}
+button.secondary,.btn-secondary,.secondary-button,.icon-button{
+ background:#fff!important;color:#345786!important;border:1px solid #DCE5F2!important
+}
+button.secondary:hover,.btn-secondary:hover,.secondary-button:hover,.icon-button:hover{background:#F3F6FC!important;border-color:#C8D6EA!important}
+input,select,textarea{background:#fff!important;color:#263B5B!important;border:1px solid #DCE5F2!important;border-radius:8px!important;box-shadow:none!important}
+input:focus,select:focus,textarea:focus{border-color:#8AA7D4!important;box-shadow:0 0 0 3px rgba(49,94,171,.08)!important;outline:none!important}
+table th{background:#F7F9FC!important;color:#78869D!important;font-weight:600!important}
+table td,table th{border-color:#E9EEF6!important}
+.badge,.tag,.status-pill{background:#EDF3FC!important;color:#3C5F91!important;border:1px solid #E0E9F7!important;border-radius:999px!important}
+a{color:#315EAB}
+:focus-visible{outline:2px solid #8AA7D4!important;outline-offset:2px}
+::selection{background:#DCE7F8;color:#193B70}
+@media(max-width:800px){
+ .sidebar{background:#15356B!important}
+ .topbar{padding:12px 14px!important}
+ .page-content{padding:18px 14px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
