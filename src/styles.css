@@ -1107,3 +1107,56 @@ a{color:#bd571a!important}
 :focus-visible{outline:3px solid rgba(232,117,39,.35)!important;outline-offset:3px}
 ::selection{background:#ffdfc2;color:#60351b}
 @media(max-width:800px){.sidebar{background:linear-gradient(180deg,#fffefa,#fff7ef)!important}.topbar{padding:12px 14px}.page-content{padding:22px 14px}.channel-banner,.page-heading{border-radius:14px!important}}
+
+
+/* INFOTELCOM Connect — identité bleu & blanc, interface SaaS épurée */
+:root{
+  color-scheme:light;
+  --bg:#ffffff;
+  --soft:#F3F6FD;
+  --ink:#0E1630;
+  --mut:#5B6684;
+  --line:#E1E7F5;
+  --navy:#0A1A4F;
+  --blue:#1E4FD8;
+  --sun:#FFC72C;
+}
+html,body{background:var(--bg)!important;color:var(--ink)!important}
+body{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif!important}
+.app-shell{background:var(--soft)!important}
+.sidebar{background:var(--navy)!important;color:#fff!important;border-right:1px solid #172b68!important}
+.sidebar-brand,.sidebar-brand *{color:#fff}
+.brandmark{background:#fff!important;color:var(--navy)!important;box-shadow:none!important;border:1px solid #dce5ff!important}
+.topbar{background:rgba(255,255,255,.94)!important;color:var(--ink)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:blur(12px)}
+.page-content{background:var(--soft)!important;color:var(--ink)!important}
+.page-heading,.channel-banner,.panel,.stat,.card,.modal,.dialog,.settings-card,.meeting-card,.call-hero,.et-panel{
+  box-shadow:0 8px 24px rgba(10,26,79,.035)!important;
+}
+.page-heading,.panel,.stat,.card,.modal,.dialog,.settings-card,.meeting-card,.et-panel{
+  background:#fff!important;border:1px solid var(--line)!important;color:var(--ink)!important;border-radius:14px!important
+}
+.channel-banner{background:#fff!important;border:1px solid var(--line)!important;color:var(--ink)!important}
+h1,h2,h3,h4,.page-title,.section-title{color:var(--ink)!important}
+p,.muted,.subtitle,.page-description{color:var(--mut)!important}
+.sidebar button,.sidebar a,.nav-item{border-radius:9px!important;transition:background .18s ease,color .18s ease!important}
+.sidebar button:hover,.sidebar a:hover,.nav-item:hover{background:#172b68!important;color:#fff!important}
+.sidebar button.active,.sidebar .active,.nav-item.active{background:#1B2F7A!important;color:#fff!important;border-left:3px solid var(--sun)!important}
+button,.btn,.primary-button,.action-button{box-shadow:none!important;transition:background .18s ease,border-color .18s ease,transform .18s ease!important}
+button:not(.sidebar button),.btn,.secondary-button,.icon-button{border-radius:10px!important}
+button.primary,.btn-primary,.primary-button,.action-button.primary{background:var(--blue)!important;color:#fff!important;border:1px solid var(--blue)!important}
+button.primary:hover,.btn-primary:hover,.primary-button:hover,.action-button.primary:hover{background:#173fb0!important}
+button.secondary,.btn-secondary,.secondary-button,.icon-button{background:#fff!important;color:var(--navy)!important;border:1px solid var(--line)!important}
+button.secondary:hover,.btn-secondary:hover,.secondary-button:hover,.icon-button:hover{background:#F3F6FD!important;border-color:#c8d5f5!important}
+input,select,textarea{background:#fff!important;color:var(--ink)!important;border:1px solid #D6DFF1!important;border-radius:9px!important}
+input:focus,select:focus,textarea:focus{border-color:var(--blue)!important;box-shadow:0 0 0 3px rgba(30,79,216,.10)!important;outline:none!important}
+table th{background:#F7F9FE!important;color:var(--mut)!important}
+table td,table th{border-color:var(--line)!important}
+.badge,.tag,.status-pill{border-radius:999px!important}
+:focus-visible{outline:3px solid rgba(255,199,44,.8)!important;outline-offset:2px}
+::selection{background:#DCE6FF;color:var(--navy)}
+@media(max-width:800px){
+  .sidebar{background:var(--navy)!important}
+  .topbar{padding:12px 14px!important}
+  .page-content{padding:18px 14px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
