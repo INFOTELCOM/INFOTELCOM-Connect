@@ -688,3 +688,144 @@ a{color:#2b7548}
  .page-content{padding:22px 14px}
  .call-hero{padding:18px!important}
 }
+
+
+/* DREAMSCAPE — INFOTELCOM Connect immersive workspace */
+:root{
+ --bg:#041b20;--panel:rgba(5,35,39,.82);--panel2:rgba(8,54,55,.76);
+ --line:rgba(124,231,202,.22);--muted:#a0c8bd;--cyan:#62f3d4;--blue:#7fe5c1;--text:#f2fff7;
+ --dream-emerald:#16d9a0;--dream-gold:#f3d18b;--dream-ivory:#f5f3e8;
+}
+html{background:#041b20}
+body{
+ color:#f2fff7!important;
+ background:
+  radial-gradient(ellipse at 76% 2%,rgba(80,207,174,.25),transparent 30%),
+  radial-gradient(ellipse at 42% 28%,rgba(18,119,115,.22),transparent 38%),
+  radial-gradient(ellipse at 100% 75%,rgba(239,190,108,.12),transparent 28%),
+  linear-gradient(135deg,#041b20 0%,#062c30 48%,#071c2b 100%)!important;
+ background-attachment:fixed!important;
+}
+.app-shell{isolation:isolate;position:relative}
+.app-shell:before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.65;
+ background:radial-gradient(ellipse at 14% 92%,rgba(37,220,164,.16),transparent 30%),
+ radial-gradient(ellipse at 87% 15%,rgba(245,205,127,.12),transparent 26%);
+}
+.sidebar{
+ background:linear-gradient(165deg,rgba(7,58,47,.94),rgba(3,31,37,.96) 72%,rgba(9,54,53,.95))!important;
+ border-right:1px solid rgba(106,237,195,.22)!important;
+ box-shadow:16px 0 60px rgba(0,0,0,.15);
+ backdrop-filter:blur(24px);
+}
+.brandmark,.org-avatar,.avatar{
+ background:linear-gradient(140deg,#d9f4b7 0%,#54e2b3 48%,#078e78 100%)!important;
+ color:#06382f!important;border:1px solid rgba(235,255,220,.7);
+ box-shadow:0 0 0 4px rgba(63,226,174,.07),0 8px 28px rgba(16,220,157,.22)!important;
+}
+.sidebar-brand strong{color:#f6fff5}
+.sidebar-brand strong i{color:#75f2d0!important}
+.sidebar-brand span,.side-label,.eyebrow{color:#9dc9b7!important}
+.workspace-switch{
+ background:linear-gradient(120deg,rgba(26,108,78,.55),rgba(6,48,49,.65))!important;
+ border-color:rgba(120,239,190,.25)!important;border-radius:18px!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.08),0 12px 30px rgba(0,0,0,.12);
+}
+.main-nav button,.channel-entry>button:first-child{color:#c0d9ce!important;border-radius:13px!important;transition:all .22s ease}
+.main-nav button:hover,.channel-entry>button:hover{
+ background:rgba(60,207,158,.12)!important;color:#f5fff8!important;transform:translateX(2px)
+}
+.main-nav button.selected{
+ background:linear-gradient(100deg,rgba(36,197,139,.28),rgba(14,93,82,.30))!important;
+ color:#eafff4!important;box-shadow:inset 3px 0 #f1d08d,0 8px 24px rgba(0,0,0,.12)!important;
+}
+.nav-count{background:rgba(65,222,167,.17)!important;color:#c9ffe7!important;border:1px solid rgba(104,241,190,.2)}
+.topbar{
+ background:rgba(7,38,43,.62)!important;border-bottom:1px solid rgba(128,229,199,.18)!important;
+ backdrop-filter:blur(22px);position:relative;
+}
+.breadcrumb,.breadcrumb b{color:#e8fff3!important}.description,.topbar-sub{color:#a3c6b8!important}
+.searchbox{
+ background:rgba(247,246,234,.96)!important;border:1px solid rgba(231,222,183,.7)!important;
+ border-radius:999px!important;box-shadow:0 8px 28px rgba(0,0,0,.12);overflow:hidden
+}
+.searchbox input{background:transparent!important;color:#214a3b!important}
+.searchbox input::placeholder{color:#72887b!important}
+.main-panel{background:transparent!important}
+.channel-banner,.page-heading{
+ background:linear-gradient(110deg,rgba(19,102,78,.68),rgba(8,55,58,.54),rgba(11,40,53,.56))!important;
+ border:1px solid rgba(122,236,197,.23)!important;border-radius:24px!important;
+ box-shadow:0 18px 55px rgba(0,0,0,.15),inset 0 1px rgba(255,255,255,.07)!important;
+ backdrop-filter:blur(18px);
+}
+.channel-banner h1,.page-heading h1{color:#f0fff5!important}
+.channel-banner p,.page-heading p{color:#b0d0c1!important}
+.hash-large,.empty-symbol,.file-icon{
+ background:linear-gradient(145deg,#d9f4b7,#43d9ab)!important;color:#075043!important;
+ border:1px solid rgba(243,255,224,.65)!important;box-shadow:0 0 30px rgba(40,223,166,.14)
+}
+.message-list,.messages-list{background:transparent!important}
+.message,.message-row,.message-card,.chat-message{
+ border-color:rgba(114,227,192,.15)!important;
+}
+.message-content p{color:#e5f8ed!important}
+.message-meta b{color:#b8f3d2!important}
+.message-meta time,.member-indicator{color:#8fb8a8!important}
+.message-actions button,.reaction-button,.message-toolbar button{
+ border:1px solid rgba(116,224,193,.2)!important;border-radius:12px!important;
+ background:rgba(5,42,50,.72)!important;color:#d4f5e7!important;
+}
+.composer-inner,.section-card,.modal,.meeting-card,.et-panel,.enterprise-tools .et-panel{
+ background:linear-gradient(145deg,rgba(8,54,55,.86),rgba(5,32,42,.88))!important;
+ color:#edfff5!important;border:1px solid rgba(113,233,192,.23)!important;
+ border-radius:22px!important;box-shadow:0 18px 55px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.055)!important;
+ backdrop-filter:blur(20px)
+}
+.composer-inner{border-radius:20px!important}
+.composer textarea{color:#f0fff6!important}
+.composer textarea::placeholder{color:#91b7a8!important}
+.composer-tools,.bottom-note,.muted,.small-note,.et-muted{color:#a3c6b7!important}
+.primary{
+ background:linear-gradient(115deg,#38e0a6,#119e83)!important;color:#032e29!important;
+ border:1px solid rgba(222,255,229,.45)!important;border-radius:13px!important;
+ box-shadow:0 8px 24px rgba(14,209,148,.2)!important;font-weight:800!important;
+ transition:transform .2s ease,filter .2s ease!important
+}
+.primary:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.secondary,.tiny-icon,.icon-button{
+ background:rgba(13,67,66,.65)!important;border:1px solid rgba(127,224,191,.2)!important;
+ color:#d4f4e5!important;border-radius:12px!important
+}
+.secondary:hover,.tiny-icon:hover,.icon-button:hover{background:rgba(29,116,87,.7)!important;color:#fff!important}
+.et-heading h1,.et-panel h2,.et-panel h3,.et-list-row b,.et-conversation b{color:#edfff4!important}
+.et-tabs{border-color:rgba(116,224,193,.18)!important}
+.et-tabs button{color:#a6c8b9!important}
+.et-tabs button.active{background:rgba(38,199,141,.18)!important;color:#dfffee!important;border-bottom:2px solid #5af0c0!important}
+.et-list-row,.et-status-post,.et-attachment,.et-conversation{border-color:rgba(116,224,193,.17)!important}
+.et-conversation{background:rgba(8,50,52,.7)!important;color:#e5f8ed!important}
+.et-conversation.active{background:rgba(33,146,106,.27)!important}
+.et-message{background:linear-gradient(120deg,rgba(17,78,75,.68),rgba(8,47,55,.72))!important;color:#eafff3!important;border:1px solid rgba(110,226,188,.18)!important;border-radius:18px!important}
+.et-message.mine{background:linear-gradient(120deg,rgba(27,115,83,.55),rgba(7,74,72,.62))!important}
+.et-message p{color:#f0fff5!important}
+.stack input,.stack select,.stack textarea,.et-form input,.et-form select,.et-form textarea,.et-send input{
+ background:rgba(3,32,40,.75)!important;border:1px solid rgba(117,226,190,.22)!important;color:#effff5!important;border-radius:12px!important
+}
+.stack input::placeholder,.et-form input::placeholder,.et-form textarea::placeholder,.et-send input::placeholder{color:#91b7a8!important}
+.auth-page,.loading{background:radial-gradient(ellipse at 20% 10%,rgba(45,184,127,.25),transparent 42%),linear-gradient(135deg,#041b20,#092d32)!important}
+.auth-card{background:rgba(7,47,49,.88)!important;border:1px solid rgba(118,231,193,.25)!important;backdrop-filter:blur(24px)}
+.auth-card h1,.member-info b,.section-card-head h2,.modal h2{color:#effff5!important}
+.member-info span,.section-card-head span{color:#a2c5b5!important}
+.role-pill{background:rgba(19,88,69,.6)!important;color:#c5f2d9!important;border-color:rgba(123,221,180,.22)!important}
+.role-pill.owner{background:rgba(53,161,106,.3)!important;color:#e0ffe7!important;border-color:rgba(147,239,168,.4)!important}
+.security-callout,.modal-hint,.link-box,.invite-account{background:rgba(18,88,68,.42)!important;border-color:rgba(123,221,180,.22)!important;color:#d6f6e3!important}
+.security-icon,.modal-icon{background:linear-gradient(140deg,#d9f4b7,#4ad9ad)!important;color:#075043!important}
+.toast{background:#0c5b45!important;border-color:#51dba5!important;color:#f5fff7!important}
+a{color:#78e6bd!important}
+:focus-visible{outline:3px solid #f3d18b!important;outline-offset:3px}
+::selection{background:#72e9bc;color:#07382f}
+@media(max-width:800px){
+ .sidebar{background:linear-gradient(165deg,rgba(7,58,47,.98),rgba(3,31,37,.98))!important}
+ .topbar{padding:12px 14px}
+ .page-content{padding:22px 14px}
+ .channel-banner,.page-heading{border-radius:18px!important}
+}
