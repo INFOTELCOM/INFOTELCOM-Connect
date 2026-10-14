@@ -43,3 +43,53 @@ drop policy if exists connect_tasks_member_update on public.connect_tasks;
 create policy connect_tasks_member_update on public.connect_tasks for update to authenticated
 using(exists(select 1 from public.connect_members m where m.organization_id=connect_tasks.organization_id and m.user_id=auth.uid()))
 with check(exists(select 1 from public.connect_members m where m.organization_id=connect_tasks.organization_id and m.user_id=auth.uid()) and (assigned_to is null or exists(select 1 from public.connect_members m where m.organization_id=connect_tasks.organization_id and m.user_id=connect_tasks.assigned_to)));
+
+
+-- Private object access for chat attachments.
+-- Paths are stored as: <organization UUID>/chat/<conversation UUID>/<random>-<filename>.
+-- The bucket must be created as private before using this feature.
+drop policy if exists connect_chat_attachments_storage_read on storage.objects;
+create policy connect_chat_attachments_storage_read on storage.objects
+for select to authenticated
+using (
+ bucket_id = 'connect-private-files'
+ and exists (
+  select 1
+  from public.connect_dm_participants p
+  join public.connect_dm_conversations c on c.id = p.conversation_id
+  where p.user_id = auth.uid()
+    and c.id::text = (storage.foldername(name))[3]
+    and c.organization_id::text = (storage.foldername(name))[1]
+    and (storage.foldername(name))[2] = 'chat'
+ )
+);
+drop policy if exists connect_chat_attachments_storage_insert on storage.objects;
+create policy connect_chat_attachments_storage_insert on storage.objects
+for insert to authenticated
+with check (
+ bucket_id = 'connect-private-files'
+ and exists (
+  select 1
+  from public.connect_dm_participants p
+  join public.connect_dm_conversations c on c.id = p.conversation_id
+  where p.user_id = auth.uid()
+    and c.id::text = (storage.foldername(name))[3]
+    and c.organization_id::text = (storage.foldername(name))[1]
+    and (storage.foldername(name))[2] = 'chat'
+ )
+);
+drop policy if exists connect_chat_attachments_storage_delete on storage.objects;
+create policy connect_chat_attachments_storage_delete on storage.objects
+for delete to authenticated
+using (
+ bucket_id = 'connect-private-files'
+ and exists (
+  select 1
+  from public.connect_dm_participants p
+  join public.connect_dm_conversations c on c.id = p.conversation_id
+  where p.user_id = auth.uid()
+    and c.id::text = (storage.foldername(name))[3]
+    and c.organization_id::text = (storage.foldername(name))[1]
+    and (storage.foldername(name))[2] = 'chat'
+ )
+);
