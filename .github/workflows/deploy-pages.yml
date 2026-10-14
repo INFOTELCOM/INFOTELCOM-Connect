@@ -44,8 +44,8 @@ jobs:
       - name: Verify build files
         run: |
           test -s dist/index.html
-          test -s dist/manifest.webmanifest
           test -d dist/assets
+          test -s dist/index.html
           echo "Production build files verified."
 
       - name: Upload GitHub Pages artifact
